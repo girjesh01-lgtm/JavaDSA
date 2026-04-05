@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.Arrays;
-
 public class HouseRobbery {
 
     public static void main(String[] args) {
@@ -29,6 +27,24 @@ public class HouseRobbery {
             nextToNext = temp;
         }
         return next;
+    }
+
+    private static int calculateMaxBottomUpCircularStreet(int[] houses) {
+        if(houses.length == 1) {
+            return houses[0];
+        }
+        return Math.max(robRange(houses, 0, houses.length-2), robRange(houses, 1, houses.length-1));
+    }
+
+    private static int robRange(int[] houses, int start, int end) {
+        int prev1 = 0;
+        int prev2 = 0;
+        for (int i = end; i >= start; i--) {
+            int curr = Math.max(houses[i]+ prev2, prev1);
+            prev2 = prev1;
+            prev1 = curr;
+        }
+        return prev1;
     }
 
     private static int getFromMemory(int i, int[] mem, int length) {
