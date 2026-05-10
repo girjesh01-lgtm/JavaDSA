@@ -32,12 +32,6 @@ interface Gamer {
     }
 }
 
-class Parent {
-    static void show() {
-        System.out.println("Parent");
-    }
-}
-
 class Child extends Parent {
     static void show() {
         System.out.println("Child");
