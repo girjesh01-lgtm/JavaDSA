@@ -35,5 +35,8 @@ build/
 ### VS Code ###
 .vscode/
 
+### Local build scratch ###
+src/main/java/org/example/.codex-build/
+
 ### Mac OS ###
 .DS_Store
